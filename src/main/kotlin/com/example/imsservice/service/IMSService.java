@@ -22,15 +22,17 @@ public class IMSService {
         return repository.findAll();
     }
 
+    public Item getItemById(int id) {
+        return repository.findById(id).orElse(null);
+    }
 
     public Item saveItem(Item item) {
         return repository.save(item);
     }
 
+    public void deleteItem(int id) {repository.deleteById(id);}
+
 
     //update Item
-    public Item UpdateQR(int id){
-        return null;
-    }
 
 }

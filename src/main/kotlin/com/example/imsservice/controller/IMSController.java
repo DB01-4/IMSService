@@ -1,6 +1,5 @@
 package com.example.imsservice.controller;
 import com.example.imsservice.entity.Item;
-import com.example.imsservice.repository.IMSRepository;
 import com.example.imsservice.service.IMSService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,20 +21,20 @@ public class IMSController {
         return service.getItems();
     }
 
-    //Get qr code by id
-    @GetMapping("/item/{type}")
-    public Item findItemByType(@PathVariable int type) {
-        return null;
+    @GetMapping("/item/{id}")
+    public Item getItemById(@PathVariable int id) {
+        return service.getItemById(id);
     }
 
-    @PutMapping("/update/{id}")
-    public void updateItem(@PathVariable int id) {
-        service.UpdateQR(id);
-    }
 
     @PostMapping("/post")
     public Item addItem(@RequestBody Item item) {
         return service.saveItem(item);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteItem(@PathVariable int id) {
+        service.deleteItem(id);
     }
 
 
