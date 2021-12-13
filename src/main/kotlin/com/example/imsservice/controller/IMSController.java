@@ -26,6 +26,11 @@ public class IMSController {
         return service.getItemById(id);
     }
 
+    @PutMapping("/update/{id}")
+    public void updateItemById(@RequestBody Item item, @PathVariable int id) {
+        service.updateItemById(item, id);
+    }
+
 
     @PostMapping("/post")
     public Item addItem(@RequestBody Item item) {

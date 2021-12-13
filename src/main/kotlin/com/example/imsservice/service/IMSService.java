@@ -32,6 +32,19 @@ public class IMSService {
 
     public void deleteItem(int id) {repository.deleteById(id);}
 
+    public Item updateItemById(Item newItem, int id) {
+        return repository.findById(id)
+                .map(item -> {
+                    item.setName(newItem.getName());
+                    item.setQuantity(newItem.getQuantity());
+                    return repository.save(item);
+                })
+                .orElseGet(() -> {
+                    newItem.setId(id);
+                    return repository.save(newItem);
+                });
+    }
+
 
     //update Item
 
