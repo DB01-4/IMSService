@@ -45,6 +45,13 @@ public class IMSService {
                 });
     }
 
+    public Item updateItemQuantityByName(String name, int value) {
+        Item item = repository.findByName(name).get(0);
+        System.out.println(item.quantity);
+        item.quantity -= value;
+        return repository.save(item);
+    }
+
 
     //update Item
 
