@@ -3,6 +3,7 @@ package com.example.imsservice.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.*;
 
 
 
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 public class Item {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
     public String name;
     public String type;
