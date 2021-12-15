@@ -31,6 +31,12 @@ public class IMSController {
         service.updateItemById(item, id);
     }
 
+    @PutMapping("/decrease/{name}/{value}")
+    public void updateItemQuantityByName(@PathVariable String name, @PathVariable int value) {
+        service.updateItemQuantityByName(name, value);
+    }
+
+
 
     @PostMapping("/post")
     public Item addItem(@RequestBody Item item) {
