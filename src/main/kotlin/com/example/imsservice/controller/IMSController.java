@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @CrossOrigin(origins="*")
-@RequestMapping("api/private")
+@RequestMapping("api/")
 @RestController
 public class IMSController {
 
@@ -16,34 +16,32 @@ public class IMSController {
     private IMSService service;
 
     //Get qr codes
-    @GetMapping("/items")
+    @GetMapping("public/items")
     public List<Item> getItems() {
         return service.getItems();
     }
 
-    @GetMapping("/item/{id}")
+    @GetMapping("public/item/{id}")
     public Item getItemById(@PathVariable int id) {
         return service.getItemById(id);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("private/update/{id}")
     public void updateItemById(@RequestBody Item item, @PathVariable int id) {
         service.updateItemById(item, id);
     }
 
-    @PutMapping("/decrease/{name}/{value}")
+    @PutMapping("private/decrease/{name}/{value}")
     public void updateItemQuantityByName(@PathVariable String name, @PathVariable int value) {
         service.updateItemQuantityByName(name, value);
     }
 
-
-
-    @PostMapping("/post")
+    @PostMapping("private/post")
     public Item addItem(@RequestBody Item item) {
         return service.saveItem(item);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("private/delete/{id}")
     public void deleteItem(@PathVariable int id) {
         service.deleteItem(id);
     }
