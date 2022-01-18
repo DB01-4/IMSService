@@ -16,32 +16,32 @@ public class IMSController {
     private IMSService service;
 
     //Get qr codes
-    @GetMapping("public/items")
+    @GetMapping("items")
     public List<Item> getItems() {
         return service.getItems();
     }
 
-    @GetMapping("public/item/{id}")
+    @GetMapping("item/{id}")
     public Item getItemById(@PathVariable int id) {
         return service.getItemById(id);
     }
 
-    @PutMapping("public/item/update/{id}")
+    @PutMapping("item/update/{id}")
     public void updateItemById(@RequestBody Item item, @PathVariable int id) {
         service.updateItemById(item, id);
     }
 
-    @PutMapping("public/item/decrease/{name}/{value}")
+    @PutMapping("item/decrease/{name}/{value}")
     public void updateItemQuantityByName(@PathVariable String name, @PathVariable int value) {
         service.updateItemQuantityByName(name, value);
     }
 
-    @PostMapping("public/item/post")
+    @PostMapping("item/post")
     public Item addItem(@RequestBody Item item) {
         return service.saveItem(item);
     }
 
-    @DeleteMapping("public/item/delete/{id}")
+    @DeleteMapping("item/delete/{id}")
     public void deleteItem(@PathVariable int id) {
         service.deleteItem(id);
     }
