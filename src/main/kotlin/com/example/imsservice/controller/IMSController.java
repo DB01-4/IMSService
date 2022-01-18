@@ -36,7 +36,7 @@ public class IMSController {
         service.updateItemQuantityByName(name, value);
     }
 
-    @PostMapping("private/item/post")
+    @PostMapping("public/item/post")
     public Item addItem(@RequestBody Item item) {
         return service.saveItem(item);
     }
