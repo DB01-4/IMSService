@@ -26,22 +26,22 @@ public class IMSController {
         return service.getItemById(id);
     }
 
-    @PutMapping("private/update/{id}")
+    @PutMapping("private/item/update/{id}")
     public void updateItemById(@RequestBody Item item, @PathVariable int id) {
         service.updateItemById(item, id);
     }
 
-    @PutMapping("private/decrease/{name}/{value}")
+    @PutMapping("private/item/decrease/{name}/{value}")
     public void updateItemQuantityByName(@PathVariable String name, @PathVariable int value) {
         service.updateItemQuantityByName(name, value);
     }
 
-    @PostMapping("private/post")
+    @PostMapping("private/item/post")
     public Item addItem(@RequestBody Item item) {
         return service.saveItem(item);
     }
 
-    @DeleteMapping("private/delete/{id}")
+    @DeleteMapping("private/item/delete/{id}")
     public void deleteItem(@PathVariable int id) {
         service.deleteItem(id);
     }
